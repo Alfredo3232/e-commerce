@@ -12,10 +12,15 @@ module.exports = {
     "plugin:react-hooks/recommended"
   ],
   ignorePatterns : ["dist"],
-  parserOptions  : { ecmaVersion: "latest", sourceType: "module" },
-  settings       : { react: { version: "18.2" } },
-  plugins        : ["react-refresh"],
-  rules          : {
+  parserOptions  : {
+    ecmaVersion : "latest",
+    sourceType  : "module"
+  },
+  settings: {
+    react: { version: "18.2" }
+  },
+  plugins : ["react-refresh"],
+  rules   : {
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true }
