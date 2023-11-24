@@ -3,7 +3,6 @@ import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 
 import Product from "../components/Product.jsx";
-import products from "../products.js";
 
 const HomeScreen = () => {
     const [products, setProducts] = useState([]);
