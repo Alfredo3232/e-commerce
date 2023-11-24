@@ -1,11 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 
+import connectDB from "./config/db.js";
 import products from "./data/products.js";
 
 // Start env
 dotenv.config();
 
+connectDB();
 // Express instance
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,5 +30,5 @@ app.get("/api/products/:id", (req, res) => {
 
 // Startup application
 app.listen(PORT, () => {
-    process.stdout.write(`Server is running at http://localhost:${PORT}\n`);
+    process.stdout.write("Running at ---------------> " + `\x1b[3m\x1b[96mhttp://localhost:${PORT}\x1b[39m\x1b[23\x1b[0m` + "\n");
 });
