@@ -5,13 +5,16 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "node:start": "node src/index.js",
+    "node:dev": "nodemon src/index.js",
+    "data:create": "node src/seeder.js",
+    "data:delete": "node src/seeder.js -d"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.1"
