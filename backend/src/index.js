@@ -31,7 +31,7 @@ const start = async () => {
 
     // Startup application
     app.listen(PORT, () => {
-        log("#00EFFF", `Running at ------> http://localhost:${PORT}`);
+        log("#00EFFF", `http://localhost:${PORT}`, "Running at ------> ");
     });
 };
 

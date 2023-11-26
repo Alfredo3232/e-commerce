@@ -1,7 +1,7 @@
 import chalk from "chalk";
 
 export default () => {
-    global.log = (colorOrStyles, text) => {
+    global.log = (colorOrStyles, text, arrow = "") => {
         let styledText = text;
 
         if (typeof colorOrStyles === "string") {
@@ -16,10 +16,10 @@ export default () => {
             });
         }
 
-        process.stdout.write(styledText + "\n");
+        process.stdout.write(arrow + styledText + "\n");
     };
 
-    global.log.error = (colorOrStyles, text) => {
+    global.log.error = (colorOrStyles, text, arrow = "") => {
         let styledText = text;
 
         if (typeof colorOrStyles === "string") {
@@ -34,7 +34,7 @@ export default () => {
             });
         }
 
-        process.stderr.write(styledText + "\n");
+        process.stderr.write(arrow + styledText + "\n");
     };
 
 };

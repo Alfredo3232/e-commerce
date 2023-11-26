@@ -31,7 +31,7 @@ const createData = async () => {
         log(["green"], "Successfully created data!");
         process.exit(0);
     } catch (error) {
-        log.error(["bold", "red"], `Error while creating data --> ${error}`);
+        log.error(["bold", "red"], `${error}`, "Error while creating data --> ");
         process.exit(1);
     }
 };
@@ -48,7 +48,7 @@ const destroyData = async () => {
         log(["green"], "Successfully destroyed data!");
         process.exit(0);
     } catch (error) {
-        log.error(["bold", "red"], `Error while destroying data --> ${error}`);
+        log.error(["bold", "red"], `${error}`, "Error while destroying data --> ");
         process.exit(1);
     }
 };
