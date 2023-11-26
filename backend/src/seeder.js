@@ -28,7 +28,7 @@ const createData = async () => {
         await Product.insertMany(sampleProducts);
 
         process.stdout.write("Successfully created data!\n");
-        process.exit();
+        process.exit(0);
     } catch (error) {
         process.stderr.write(`\x1b[31mError while creating data --> ${error}\x1b[0m\n`);
         process.exit(1);
@@ -45,7 +45,7 @@ const destroyData = async () => {
         await User.deleteMany();
 
         process.stdout.write("Successfully destroyed data!\n");
-        process.exit();
+        process.exit(0);
     } catch (error) {
         process.stderr.write(`\x1b[31mError while destroying data --> ${error}\x1b[0m\n`);
         process.exit(1);
