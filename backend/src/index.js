@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
+import globals from "./globals.js";
 import connectDB from "./config/db.js";
 import products from "./data/products.js";
 
@@ -30,12 +31,15 @@ const start = async () => {
 
     // Startup application
     app.listen(PORT, () => {
-        process.stdout.write("Running at ---------------> " + `\x1b[3m\x1b[96mhttp://localhost:${PORT}\x1b[39m\x1b[23\x1b[0m` + "\n");
+        log("#00EFFF", `Running at ------> http://localhost:${PORT}`);
     });
 };
 
-if (import.meta.url === `file://${process.argv [1]}`) {
-    process.stdout.write("\x1b[4mStarting Server\x1b[24m\x1b[0m" + "\n");
+// Runs if importing or running with node
+if (import.meta.url === `file://${process.argv[1]}`) {
+    // Setting up functions
+    globals();
 
+    log(["underline"], "Starting Server");
     start();
 }

@@ -16,6 +16,10 @@ module.exports = {
             "sourceType": "script"
         }
     }],
+    "globals": {
+        "log"       : "readonly",
+        "log.error" : "readonly"
+    },
     "ignorePatterns" : ["/frontend/*"],
     "parserOptions"  : {
         "ecmaVersion" : "latest",

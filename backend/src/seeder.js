@@ -8,7 +8,8 @@ import Order from "./models/orderModel.js";
 import users from "./data/users.js";
 import products from "./data/products.js";
 
-
+import globals from "./globals.js";
+globals();
 
 const createData = async () => {
     dotenv.config();
@@ -27,10 +28,10 @@ const createData = async () => {
 
         await Product.insertMany(sampleProducts);
 
-        process.stdout.write("Successfully created data!\n");
+        log(["green"], "Successfully created data!");
         process.exit(0);
     } catch (error) {
-        process.stderr.write(`\x1b[31mError while creating data --> ${error}\x1b[0m\n`);
+        log.error(["bold", "red"], `Error while creating data --> ${error}`);
         process.exit(1);
     }
 };
@@ -44,10 +45,10 @@ const destroyData = async () => {
         await Product.deleteMany();
         await User.deleteMany();
 
-        process.stdout.write("Successfully destroyed data!\n");
+        log(["green"], "Successfully destroyed data!");
         process.exit(0);
     } catch (error) {
-        process.stderr.write(`\x1b[31mError while destroying data --> ${error}\x1b[0m\n`);
+        log.error(["bold", "red"], `Error while destroying data --> ${error}`);
         process.exit(1);
     }
 };
