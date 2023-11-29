@@ -5,6 +5,8 @@ dotenv.config();
 import globals from "./globals.js";
 import connectDB from "./config/db.js";
 import productsRoute from "./routes/productsRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+
 
 const start = async () => {
     await connectDB();
@@ -21,6 +23,8 @@ const start = async () => {
         res.send("API is Running!");
     });
     app.use("/api/products", productsRoute);
+    app.use(notFound);
+    app.use(errorHandler);
 
     // Startup application
     app.listen(PORT, () => {
