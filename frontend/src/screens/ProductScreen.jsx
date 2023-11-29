@@ -8,7 +8,7 @@ import axios from "axios";
 import Rating from "../components/Rating.jsx";
 
 const ProductScreen = () => {
-    const [product, setProduct] = useState();
+    const [product, setProduct] = useState({});
 
     const { id: productId } = useParams();
 
