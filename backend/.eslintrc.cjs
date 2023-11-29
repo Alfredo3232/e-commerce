@@ -20,8 +20,7 @@ module.exports = {
         "log"       : "readonly",
         "log.error" : "readonly"
     },
-    "ignorePatterns" : ["/frontend/*"],
-    "parserOptions"  : {
+    "parserOptions": {
         "ecmaVersion" : "latest",
         "sourceType"  : "module"
     },
