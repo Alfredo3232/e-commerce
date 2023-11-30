@@ -18,8 +18,8 @@ dependencies:
     specifier: ^4.18.2
     version: 4.18.2
   mongoose:
-    specifier: ^8.0.1
-    version: 8.0.1
+    specifier: ^8.0.2
+    version: 8.0.2
 
 devDependencies:
   eslint:
@@ -138,8 +138,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@types/node@20.10.0:
-    resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
+  /@types/node@20.10.1:
+    resolution: {integrity: sha512-T2qwhjWwGH81vUEx4EXmBKsTJRXFXNZTL4v0gi01+zyBmCwzE6TyHszqX01m+QHTEq+EZNo13NeJIdEqf+Myrg==}
     dependencies:
       undici-types: 5.26.5
     dev: false
@@ -151,7 +151,7 @@ packages:
   /@types/whatwg-url@8.2.2:
     resolution: {integrity: sha512-FtQu10RWgn3D9U4aazdwIE2yzphmTJREDqNdODHrbrZmmMqI0vMheC/6NE/J1Yveaj8H+ela+YwWTjq5PGmuhA==}
     dependencies:
-      '@types/node': 20.10.0
+      '@types/node': 20.10.1
       '@types/webidl-conversions': 7.0.3
     dev: false
 
@@ -1112,8 +1112,8 @@ packages:
       mongodb-connection-string-url: 2.6.0
     dev: false
 
-  /mongoose@8.0.1:
-    resolution: {integrity: sha512-O3TJrtLCt4H1eGf2HoHGcnOcCTWloQkpmIP3hA9olybX3OX2KUjdIIq135HD5paGjZEDJYKn9fw4eH5N477zqQ==}
+  /mongoose@8.0.2:
+    resolution: {integrity: sha512-Vsi9GzTXjdBVzheT1HZOZ2jHNzzR9Xwb5OyLz/FvDEAhlwrRnXnuqJf0QHINUOQSm7aoyvnPks0q85HJkd6yDw==}
     engines: {node: '>=16.20.1'}
     dependencies:
       bson: 6.2.0
