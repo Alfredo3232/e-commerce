@@ -45,7 +45,9 @@ const ProductScreen = () => {
             Go Back
         </Link>
 
-        {isLoading ? (<Loader />) : error ? (<Message variant="danger">{error?.data?.message || error.error}</Message>) : (
+        {isLoading ? (<Loader />) : error ? (
+            <Message variant="danger">{error?.data?.message || error.error}</Message>
+        ) : (
             <Row>
                 <Col md={5}>
                     <Image src={product.image} alt={product.name} fluid />

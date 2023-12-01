@@ -12,8 +12,11 @@ const cartSlice = createSlice({
 
             const existItem = state.cartItems.find(el => el._id === item._id);
 
-            if (existItem) state.cartItems = state.cartItems.map(el => el._id === existItem._id ? item : el);
+            if (existItem) {
+                state.cartItems = state.cartItems.map(el => el._id === existItem._id ? item : el);
+            }
             else state.cartItems = [...state.cartItems];
+
             return updateCart(state);
         }
     }
