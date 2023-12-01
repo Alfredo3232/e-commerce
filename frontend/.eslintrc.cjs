@@ -25,7 +25,8 @@ module.exports = {
       "warn",
       { allowConstantExport: true }
     ],
-    "arrow-body-style": [
+    "react/prop-types" : "off",
+    "arrow-body-style" : [
       "error",
       "as-needed"
     ],
