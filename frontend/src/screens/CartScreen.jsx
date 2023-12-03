@@ -12,7 +12,7 @@ import {
 import { FaTrash } from "react-icons/fa";
 
 import Message from "../components/Message.jsx";
-import { addToCart } from "../slices/cartSlice.js";
+import { addToCart, removeFromCart } from "../slices/cartSlice.js";
 
 const CartScreen = () => {
     const navigate = useNavigate();
@@ -22,6 +22,14 @@ const CartScreen = () => {
 
     const addToCartHandler = async (product, qty) => {
         dispatch(addToCart({ ...product, qty }));
+    };
+
+    const removeFromCartHandler = async (id) => {
+        dispatch(removeFromCart(id));
+    };
+
+    const checkoutHandler = () => {
+        navigate("/login?redirect=/shipping");
     };
 
     return <Row>
@@ -62,7 +70,11 @@ const CartScreen = () => {
                                 </Col>
 
                                 <Col md={2}>
-                                    <Button type="button" variant="light">
+                                    <Button
+                                        type="button"
+                                        variant="light"
+                                        onClick={() => removeFromCartHandler(item._id)}
+                                    >
                                         <FaTrash />
                                     </Button>
                                 </Col>
@@ -86,7 +98,12 @@ const CartScreen = () => {
                     </ListGroup.Item>
 
                     <ListGroup.Item>
-                        <Button type="button" className="btn-block" disabled={cartItems.length === 0}>
+                        <Button
+                            type="button"
+                            className="btn-block"
+                            disabled={cartItems.length === 0}
+                            onClick={checkoutHandler}
+                        >
                             Proceed to Checkout
                         </Button>
                     </ListGroup.Item>
