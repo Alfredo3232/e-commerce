@@ -4,7 +4,9 @@ dotenv.config();
 
 import globals from "./globals.js";
 import connectDB from "./config/db.js";
+
 import productsRoute from "./routes/productsRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 
@@ -17,12 +19,16 @@ const start = async () => {
 
     // Express plugins
     app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
 
     // Routes
     app.get("/", (req, res) => {
         res.send("API is Running!");
     });
     app.use("/api/products", productsRoute);
+    app.use("/api/users", userRoutes);
+
+    // Handlers
     app.use(notFound);
     app.use(errorHandler);
 
