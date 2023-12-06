@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
+import cookieParser from "cookie-parser";
 
 import globals from "./globals.js";
 import connectDB from "./config/db.js";
@@ -20,6 +21,7 @@ const start = async () => {
     // Express plugins
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
+    app.use(cookieParser());
 
     // Routes
     app.get("/", (req, res) => {

@@ -12,7 +12,7 @@ import {
     deleteUser,
     updateUser
 } from "../controllers/userController.js";
-
+import { protect, admin } from "../middleware/authMiddleware.js";
 
 // Single Routes
 router
@@ -21,16 +21,16 @@ router
 
 // Group Routes
 router.route("/")
-    .post(registerUser)
-    .get(getUsers);
+    .post(protect, admin, registerUser)
+    .get(protect, admin, getUsers);
 
 router.route("/profile")
-    .get(getUserProfile)
-    .put(updateUserProfile);
+    .get(protect, getUserProfile)
+    .put(protect, updateUserProfile);
 
 router.route("/:id")
-    .get(getUserById)
-    .put(updateUser)
-    .delete(deleteUser);
+    .get(protect, admin, getUserById)
+    .put(protect, admin, updateUser)
+    .delete(protect, admin, deleteUser);
 
 export default router;
