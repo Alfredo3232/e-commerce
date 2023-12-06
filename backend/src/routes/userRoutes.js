@@ -21,7 +21,7 @@ router
 
 // Group Routes
 router.route("/")
-    .post(protect, admin, registerUser)
+    .post(registerUser)
     .get(protect, admin, getUsers);
 
 router.route("/profile")
