@@ -6,10 +6,10 @@ import cookieParser from "cookie-parser";
 import globals from "./globals.js";
 import connectDB from "./config/db.js";
 
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import productsRoute from "./routes/productsRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-
+import orderRoutes from "./routes/orderRoutes.js";
 
 const start = async () => {
     await connectDB();
@@ -29,6 +29,7 @@ const start = async () => {
     });
     app.use("/api/products", productsRoute);
     app.use("/api/users", userRoutes);
+    app.use("/api/orders", orderRoutes);
 
     // Handlers
     app.use(notFound);
