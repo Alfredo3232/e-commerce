@@ -14,7 +14,7 @@ import { protect, admin } from "../middleware/authMiddleware.js";
 // Single Routes
 router
     .get("/mine", protect, getMyOrders)
-    .get("/:id", protect, admin, getOrderById)
+    .get("/:id", protect, getOrderById)
     .put("/:id/pay", protect, updateOrderToPaid)
     .put("/:id/deliver", protect, admin, updateOrderToDelivered);
 
