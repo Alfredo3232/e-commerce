@@ -27,6 +27,7 @@ const start = async () => {
     app.get("/", (req, res) => {
         res.send("API is Running!");
     });
+    app.get("/api/config/paypal", (req, res) => res.send({ clientId: process.env.PAYPAL_CLIENT_ID }));
     app.use("/api/products", productsRoute);
     app.use("/api/users", userRoutes);
     app.use("/api/orders", orderRoutes);
