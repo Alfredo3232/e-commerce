@@ -7,9 +7,9 @@ import {
     Col
 } from "react-bootstrap";
 
+import { savePaymentMethod } from "../slices/cartSlice.js";
 import FormContainer from "../components/FormContainer.jsx";
 import CheckoutSteps from "../components/CheckoutSteps.jsx";
-import { savePaymentMethod } from "../slices/cartSlice.js";
 
 const PaymentScreen = () => {
     const [paymentMethod, setPaymentMethod] = useState("PayPal");
@@ -21,7 +21,7 @@ const PaymentScreen = () => {
     const { shippingAddress } = cart;
 
     useEffect(() => {
-        if(!shippingAddress) navigate("/shipping");
+        if (!shippingAddress) navigate("/shipping");
     }, [shippingAddress, navigate]);
 
     const submitHandler = (e) => {

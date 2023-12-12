@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 import {
     Button,
     Row,
@@ -10,12 +9,13 @@ import {
     Image,
     Card
 } from "react-bootstrap";
+import { toast } from "react-toastify";
 
+import { useCreateOrderMutation } from "../slices/ordersApiSlice.js";
+import { clearCartItems } from "../slices/cartSlice.js";
 import CheckoutSteps from "../components/CheckoutSteps.jsx";
 import Message from "../components/Message.jsx";
 import Loader from "../components/Loader.jsx";
-import { useCreateOrderMutation } from "../slices/ordersApiSlice.js";
-import { clearCartItems } from "../slices/cartSlice.js";
 
 
 const PlaceOrderScreen = () => {

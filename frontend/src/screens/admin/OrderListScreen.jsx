@@ -2,9 +2,9 @@ import { Table, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FaTimes } from "react-icons/fa";
 
+import { useGetOrdersQuery } from "../../slices/ordersApiSlice.js";
 import Message from "../../components/Message.jsx";
 import Loader from "../../components/Loader.jsx";
-import { useGetOrdersQuery } from "../../slices/ordersApiSlice.js";
 
 
 const OrderListScreen = () => {

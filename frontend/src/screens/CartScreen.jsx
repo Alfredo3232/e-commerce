@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import {
     Row,
     Col,
@@ -11,8 +11,8 @@ import {
 } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 
-import Message from "../components/Message.jsx";
 import { addToCart, removeFromCart } from "../slices/cartSlice.js";
+import Message from "../components/Message.jsx";
 
 const CartScreen = () => {
     const navigate = useNavigate();

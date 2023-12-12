@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import {
     Link,
     useLocation,
@@ -12,11 +11,12 @@ import {
     Row,
     Col
 } from "react-bootstrap";
+import { toast } from "react-toastify";
 
-import FormContainer from "../components/FormContainer.jsx";
-import Loader from "../components/Loader.jsx";
 import { useLoginMutation } from "../slices/usersApiSlice.js";
 import { setCredentials } from "../slices/authSlice.js";
+import FormContainer from "../components/FormContainer.jsx";
+import Loader from "../components/Loader.jsx";
 
 
 const LoginScreen = () => {

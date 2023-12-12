@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
-import { LinkContainer } from "react-router-bootstrap";
-import { FaTimes } from "react-icons/fa";
 import {
     Table,
     Form,
@@ -10,12 +7,15 @@ import {
     Row,
     Col
 } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { FaTimes } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-import Message from "../components/Message.jsx";
-import Loader from "../components/Loader.jsx";
 import { useProfileMutation } from "../slices/usersApiSlice.js";
 import { setCredentials } from "../slices/authSlice.js";
 import { useGetMyOrdersQuery } from "../slices/ordersApiSlice.js";
+import Message from "../components/Message.jsx";
+import Loader from "../components/Loader.jsx";
 
 
 const ProfileScreen = () => {

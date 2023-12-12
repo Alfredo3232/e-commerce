@@ -15,11 +15,12 @@ import {
     Form
 } from "react-bootstrap";
 
+import { useGetProductDetailsQuery } from "../slices/productsApiSlice.js";
+import { addToCart } from "../slices/cartSlice.js";
 import Rating from "../components/Rating.jsx";
 import Loader from "../components/Loader.jsx";
 import Message from "../components/Message.jsx";
-import { useGetProductDetailsQuery } from "../slices/productsApiSlice.js";
-import { addToCart } from "../slices/cartSlice.js";
+
 
 
 const ProductScreen = () => {
