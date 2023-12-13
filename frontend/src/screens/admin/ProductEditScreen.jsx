@@ -7,7 +7,11 @@ import {
 import { Form, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 
-import { useUpdateProductMutation, useGetProductDetailsQuery } from "../../slices/productsApiSlice.js";
+import {
+    useUpdateProductMutation,
+    useGetProductDetailsQuery,
+    useUploadProductImageMutation
+} from "../../slices/productsApiSlice.js";
 import Message from "../../components/Message.jsx";
 import Loader from "../../components/Loader.jsx";
 import FormContainer from "../../components/FormContainer.jsx";
@@ -32,6 +36,8 @@ const ProductEditScreen = () => {
     } = useGetProductDetailsQuery(productId);
 
     const [updateProduct, { isLoading: loadingUpdate }] = useUpdateProductMutation();
+
+    const [uploadProductImage, { isLoading: loadingUpload }] = useUploadProductImageMutation();
 
     const navigate = useNavigate();
 
@@ -71,6 +77,20 @@ const ProductEditScreen = () => {
         }
     };
 
+    const uploadFileHandler = async (e) => {
+        const formData = new FormData();
+
+        formData.append("image", e.target.files[0]);
+
+        try {
+            const res = await uploadProductImage(formData).unwrap();
+            toast.success(res.message);
+            setImage(res.image);
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+        }
+    };
+
     return <>
         <Link to="/admin/productlist" className="btn btn-light my-3">
             Go Back
@@ -106,7 +126,21 @@ const ProductEditScreen = () => {
                         ></Form.Control>
                     </Form.Group>
 
-                    {/* Image Placeholder */}
+                    <Form.Group controlId="image" className="my-2">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Enter image url"
+                            value={image}
+                            onChange={(e) => setImage}
+                        ></Form.Control>
+
+                        <Form.Control
+                            type="file"
+                            label="Choose file"
+                            onChange={uploadFileHandler}
+                        ></Form.Control>
+                    </Form.Group>
 
                     <Form.Group controlId="brand" className="my-2">
                         <Form.Label>Brand</Form.Label>
