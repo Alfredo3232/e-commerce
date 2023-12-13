@@ -8,7 +8,11 @@ import { LinkContainer } from "react-router-bootstrap";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-import { useGetProductsQuery, useCreateProductMutation } from "../../slices/productsApiSlice.js";
+import {
+    useGetProductsQuery,
+    useCreateProductMutation,
+    useDeleteProductMutation
+} from "../../slices/productsApiSlice.js";
 import Message from "../../components/Message.jsx";
 import Loader from "../../components/Loader.jsx";
 
@@ -23,8 +27,18 @@ const ProductListScreen = () => {
 
     const [createProduct, { isLoading: loadingCreate }] = useCreateProductMutation();
 
-    const deleteHandler = (id) => {
+    const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
 
+    const deleteHandler = async (id) => {
+        if(window.confirm("Are you sure?")) {
+            try {
+                await deleteProduct(id);
+                toast.success("Product deleted");
+                refetch();
+            } catch (err) {
+                toast.error(err?.data?.message || err.error);
+            }
+        }
     };
 
     const createProductHandler = async () => {
@@ -51,6 +65,8 @@ const ProductListScreen = () => {
         </Row>
 
         {loadingCreate && <Loader />}
+        {loadingDelete && <Loader />}
+
         {isLoading ? <Loader /> : error ? (
             <Message variant="danger">
                 {error}
