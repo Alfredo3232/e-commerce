@@ -1,5 +1,6 @@
 import { Table, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { toast } from "react-toastify";
 import {
     FaTimes,
     FaTrash,
@@ -7,7 +8,10 @@ import {
     FaCheck
 } from "react-icons/fa";
 
-import { useGetUsersQuery } from "../../slices/usersApiSlice.js";
+import {
+    useGetUsersQuery,
+    useDeleteUserMutation
+} from "../../slices/usersApiSlice.js";
 import Message from "../../components/Message.jsx";
 import Loader from "../../components/Loader.jsx";
 
@@ -20,7 +24,19 @@ const UserListScreen = () => {
         error
     } = useGetUsersQuery();
 
-    const deleteHandler = (id) => { };
+    const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
+
+    const deleteHandler = async (id) => {
+        if (window.confirm("Are you sure?")) {
+            try {
+                await deleteUser(id);
+                toast.success("User deleted");
+                refetch();
+            } catch (err) {
+                toast.error(err?.data?.message || err.error);
+            }
+        }
+    };
 
     return <>
         <h1>Users</h1>
