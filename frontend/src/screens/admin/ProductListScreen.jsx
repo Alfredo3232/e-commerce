@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 import {
     Table,
     Button,
@@ -15,22 +16,24 @@ import {
 } from "../../slices/productsApiSlice.js";
 import Message from "../../components/Message.jsx";
 import Loader from "../../components/Loader.jsx";
-
+import Paginate from "../../components/Paginate.jsx";
 
 const ProductListScreen = () => {
+    const { pageNumber } = useParams();
+
     const {
-        data: products,
+        data,
         isLoading,
         error,
         refetch
-    } = useGetProductsQuery();
+    } = useGetProductsQuery({ pageNumber });
 
     const [createProduct, { isLoading: loadingCreate }] = useCreateProductMutation();
 
     const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
 
     const deleteHandler = async (id) => {
-        if(window.confirm("Are you sure?")) {
+        if (window.confirm("Are you sure?")) {
             try {
                 await deleteProduct(id);
                 toast.success("Product deleted");
@@ -86,7 +89,7 @@ const ProductListScreen = () => {
                     </thead>
 
                     <tbody>
-                        {products.map((product) => (
+                        {data.products.map((product) => (
                             <tr key={product._id}>
                                 <td>{product._id}</td>
                                 <td>{product.name}</td>
@@ -111,6 +114,8 @@ const ProductListScreen = () => {
                         ))}
                     </tbody>
                 </Table>
+
+                <Paginate pages={data.pages} page={data.page} isAdmin={true} />
             </>
         )}
     </>;
