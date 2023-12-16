@@ -7,13 +7,15 @@ import {
     createProduct,
     updateProduct,
     deleteProduct,
-    createProductReview
+    createProductReview,
+    getTopProducts
 } from "../controllers/productController.js";
 import { protect, admin } from "../middleware/authMiddleware.js";
 
 
 router
-    .post("/:id/reviews", protect, createProductReview);
+    .post("/:id/reviews", protect, createProductReview)
+    .get("/top", getTopProducts);
 
 router.route("/")
     .post(protect, admin, createProduct)
