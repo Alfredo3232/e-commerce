@@ -21,7 +21,7 @@ import { addToCart } from "../slices/cartSlice.js";
 import Rating from "../components/Rating.jsx";
 import Loader from "../components/Loader.jsx";
 import Message from "../components/Message.jsx";
-
+import Meta from "../components/Meta.jsx";
 
 
 const ProductScreen = () => {
@@ -76,9 +76,13 @@ const ProductScreen = () => {
         </Link>
 
         {isLoading ? (<Loader />) : error ? (
-            <Message variant="danger">{error?.data?.message || error.error}</Message>
+            <Message variant="danger">
+                {error?.data?.message || error.error}
+            </Message>
         ) : (
             <>
+                <Meta title={product.name} />
+
                 <Row>
                     <Col md={5}>
                         <Image src={product.image} alt={product.name} fluid />
@@ -173,7 +177,7 @@ const ProductScreen = () => {
 
                                 {loadingProductReview && <Loader />}
                                 {userInfo ? (
-                                    <Form onSubmit={ submitHandler }>
+                                    <Form onSubmit={submitHandler}>
                                         <Form.Group controlId="rating" className="my-2">
                                             <Form.Label>Rating</Form.Label>
                                             <Form.Control
