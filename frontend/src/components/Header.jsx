@@ -12,6 +12,7 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 import { useLogoutMutation } from "../slices/usersApiSlice.js";
 import { logout } from "../slices/authSlice.js";
+import { resetCart } from "../slices/cartSlice.js";
 import SearchBox from "./SearchBox.jsx";
 import logo from "../CSS/logo.png";
 
@@ -28,10 +29,13 @@ const Header = () => {
     const logoutHandler = async () => {
         try {
             await logoutApiCall().unwrap();
+
             dispatch(logout());
+            dispatch(resetCart());
+
             navigate("/login");
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     };
 
