@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 
 import { useGetProductsQuery } from "../slices/productsApiSlice.js";
@@ -17,6 +17,8 @@ const HomeScreen = () => {
     } = useGetProductsQuery({ keyword, pageNumber });
 
     return <>
+        {keyword && <Link to="/" className="btn btn-light mb-4">Go Back</Link>}
+
         {isLoading ? (<Loader />) : error ? (
             <Message variant="danger">{error?.data?.message || error.error}</Message>
         ) : (

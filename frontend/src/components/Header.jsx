@@ -12,6 +12,7 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 import { useLogoutMutation } from "../slices/usersApiSlice.js";
 import { logout } from "../slices/authSlice.js";
+import SearchBox from "./SearchBox.jsx";
 import logo from "../assets/logo.png";
 
 
@@ -46,6 +47,8 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
+                        <SearchBox />
+
                         <LinkContainer to="/cart">
                             <Nav.Link>
                                 <FaShoppingCart />Cart
