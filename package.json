@@ -1,0 +1,15 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "backend-dependencies": "npm i --prefix backend",
+    "frontend-dependencies": "npm i --prefix frontend",
+    "build-frontend": "npm run build --prefix frontend",
+    "install": "concurrently \"npm run backend-dependencies\" \"npm run frontend-dependencies\" \"npm run build-frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
