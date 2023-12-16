@@ -7,7 +7,8 @@
     "backend-dependencies": "npm i --prefix backend",
     "frontend-dependencies": "npm i --prefix frontend",
     "build-frontend": "npm run build --prefix frontend",
-    "install": "concurrently \"npm run backend-dependencies\" \"npm run frontend-dependencies\" \"npm run build-frontend\""
+    "install": "concurrently \"npm run backend-dependencies\" \"npm run frontend-dependencies\" \"npm run build-frontend\"",
+    "start": "npm run start --prefix backend"
   },
   "keywords": [],
   "author": "",
