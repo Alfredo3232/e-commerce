@@ -6,8 +6,8 @@ import {
 
 // App and CSS
 import App from "./App.jsx";
-import "./assets/styles/bootstrap.custom.css";
-import "./assets/styles/index.css";
+import "./CSS/styles/bootstrap.custom.css";
+import "./CSS/styles/index.css";
 
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
