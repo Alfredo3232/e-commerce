@@ -12,7 +12,7 @@ const Meta = ({
     </Helmet>;
 
 Meta.defaultProps = {
-    title       : "Welcome to ProShop",
+    title       : "Welcome to [Your Companies Name Here]",
     description : "We sell the best products for cheap",
     keywords    : "electronics, buy electronics, cheap electronics"
 };
